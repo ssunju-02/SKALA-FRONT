@@ -290,7 +290,7 @@ main.card, .card + .card { margin-top: 24px; }
   background-size: 140px 140px;
   margin: 10px;
   padding: 14px 14px 20px;
-  border: 1px solid var(--sand-deep);
+  border: none;
   border-radius: 3px;
   box-shadow: 0 10px 22px rgba(68, 48, 33, 0.20), 0 2px 6px rgba(68, 48, 33, 0.12);
   position: relative;
