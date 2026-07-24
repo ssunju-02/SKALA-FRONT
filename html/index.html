@@ -20,7 +20,7 @@
     <p>김선주의 유니버스에 오신 것을 환영합니다!</p>
 
     <nav>
-      <h2>🪼 바로가기</h2>
+      <h2>바로가기</h2>
       <ul>
         <li><a href="myProfile.html">소개</a></li>
         <li><a href="myClass.html">수업 시간표</a></li>
@@ -35,7 +35,7 @@
 
   <div class="content-flex">
     <main class="card">
-      <h2>📌 오늘의 주요 소식</h2>
+      <h2>오늘의 주요 소식</h2>
 
       <h3>최근 공지 및 업데이트</h3>
       <p>[업데이트] 여행 앨범에 후쿠오카 브이로그 추가 완료!</p>
@@ -48,7 +48,7 @@
         <figcaption>울산바위의 웅장한 전경 (2026년 8월 촬영)</figcaption>
       </figure>
 
-      <h3 style="margin-top: 20px;">🗺️ 여행 기록 바로가기</h3>
+      <h3 style="margin-top: 34px;">🗺️ 여행 기록 바로가기</h3>
       <div class="stat-row">
         <a class="stat-box" href="myTrip.html#album">
           <span class="stat-num">6</span>
@@ -63,21 +63,47 @@
           <span class="stat-label">방문 기록</span>
         </a>
       </div>
-      <p><a href="myTrip.html">🐚 여행 앨범 전체 보기 →</a></p>
+      <p><a href="myTrip.html">🐚 여행 앨범 전체 보기</a></p>
+
+      <div class="widget-row">
+        <section class="card game-card">
+          <h2>Up-Down 숫자 맞추기</h2>
+          <p>컴퓨터가 1~50 사이에서<br>생각한 숫자를 맞춰보세요!</p>
+          <div class="buttons">
+            <button type="button" onclick="startUpDownGame()">게임 시작</button>
+          </div>
+        </section>
+
+        <section class="card game-card">
+          <h2>성적 계산기</h2>
+          <p>HTML, CSS, JavaScript<br>3과목 점수를 입력해보세요!</p>
+          <div class="buttons">
+            <button type="button" onclick="calculateGrade()">계산 시작</button>
+          </div>
+        </section>
+      </div>
     </main>
 
     <aside>
       <div class="card">현재 위치: SK AX 판교캠퍼스 📍</div>
 
+      <section class="card bag-card">
+        <h2>내 가방 보기</h2>
+        <p>가방 속 물품과 개수를 확인하세요!</p>
+        <div class="buttons">
+          <button type="button" onclick="showMyBag()">가방 열기</button>
+        </div>
+      </section>
+
       <div class="card profile-card">
-        <h2>⚓️ 김선주의 프로필</h2>
-        <p>안녕하세요!  김선주입니다.</p>
+        <h2>김선주의 프로필</h2>
+        <p>안녕하세요!  김선주입니다 😊</p>
 
         <figure class="polaroid profile-photo" style="--tilt: -2deg;">
           <img src="../myMedia/김선주_증명사진.jpg" alt="김선주 증명사진" width="110" style="height: auto; max-width: 110px; aspect-ratio: auto;">
         </figure>
 
-        <h2><a href="myProfile.html">🐟 이력서</a></h2>
+        <h2><a href="myProfile.html">이력서</a></h2>
         <div class="resume-block">
           <h3>학력</h3>
           <ul>
@@ -98,5 +124,8 @@
 
 </div>
 
+<script src="../script/upDown.js"></script>
+<script src="../script/grade.js"></script>
+<script src="../script/bag.js"></script>
 </body>
 </html>
