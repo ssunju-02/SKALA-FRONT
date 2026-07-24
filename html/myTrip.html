@@ -4,42 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 여행 앨범</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>🌍 나의 여행 앨범 🎵</h1>
-        <audio controls>
-        <source src="../media/music.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <hr>
-    <div class="trip-grid-container">
-        <p class="trip-card">
-            <img src="../myMedia/후쿠오카.jpg" width="400" style="height: auto;" alt="후쿠오카 여행"><br>후쿠오카 (2026년 5월)
+        <div class="hero">
+            <span class="ocean-wash a"></span>
+            <span class="ocean-wash c"></span>
+            <h1>🌍 나의 여행 앨범 🎵</h1>
+            <audio controls>
+            <source src="../media/music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        </div>
+
+        <div class="wave-divider"></div>
+
+        <div class="trip-grid-container">
+            <p class="trip-card">
+                <img src="../myMedia/후쿠오카.jpg" width="400" style="height: auto;" alt="후쿠오카 여행"><br>후쿠오카 (2026년 5월)
+            </p>
+            <p class="trip-card">
+                <img src="../myMedia/소노빌리지.jpg" width="400" style="height: auto;" alt="소노빌리지"><br>소노빌리지 (2025년 8월)
+            </p>
+            <p class="trip-card">
+                <img src="../myMedia/소노빌리지%20조식.jpg" width="400" style="height: auto;" alt="소노빌리지 조식"><br>소노빌리지 조식 (2026년 8월)
+            </p>
+            <p class="trip-card">
+                <img src="../myMedia/울산바위.jpg" width="400" style="height: auto;" alt="울산바위"><br>울산바위 (2026년 8월)
+            </p>
+            <p class="trip-card">
+                <img src="../myMedia/T1%20직관.jpg" width="400" style="height: auto;" alt="T1 직관"><br>T1 직관 (2026년 7월)
+            </p>
+        </div>
+
+        <div class="wave-divider"></div>
+
+        <h2>📹 나의 여행 브이로그</h2>
+        <p class="trip-card video-frame">
+            <video width="400" height="225" controls>
+                <source src="../myMedia/후쿠오카%20브이로그.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br>후쿠오카 여행 브이로그 2026.05.28 - 05.30 ✈️
         </p>
-        <p class="trip-card">
-            <img src="../myMedia/소노빌리지.jpg" width="400" style="height: auto;" alt="소노빌리지"><br>소노빌리지 (2025년 8월)
-        </p>
-        <p class="trip-card">
-            <img src="../myMedia/소노빌리지%20조식.jpg" width="400" style="height: auto;" alt="소노빌리지 조식"><br>소노빌리지 조식 (2026년 8월)
-        </p>
-        <p class="trip-card">
-            <img src="../myMedia/울산바위.jpg" width="400" style="height: auto;" alt="울산바위"><br>울산바위 (2026년 8월)
-        </p>
-        <p class="trip-card">
-            <img src="../myMedia/T1%20직관.jpg" width="400" style="height: auto;" alt="T1 직관"><br>T1 직관 (2026년 7월)
-        </p>
-    </div>
-    <hr>
-    <h2>📹 나의 여행 브이로그</h2>
-    <p>
-        <video width="400" height="225" controls>
-            <source src="../myMedia/후쿠오카%20브이로그.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <br>후쿠오카 여행 브이로그 2026.05.28 - 05.30 ✈️
-    </p>
     </div>
 </body>
 </html>

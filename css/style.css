@@ -1,0 +1,560 @@
+/* ============================================================
+   김선주의 유니버스 — Summer Beach Theme
+   Base font: Gowun Batang / bg: #f9efe0 / ink: #443021 / accent: #53dbee
+   ============================================================ */
+
+:root {
+  --sand: #f9efe0;
+  --sand-deep: #efe0c8;
+  --ink: #443021;
+  --ink-soft: #6b5442;
+  --ocean: #53dbee;
+  --ocean-deep: #12879c;
+  --ocean-pale: #cdf3f8;
+  --paper: #fffaf2;
+  --wave-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M0 8 Q 15 0 30 8 T 60 8 T 90 8 T 120 8' stroke='%2353dbee' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  --grain-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Gowun Batang", serif;
+  color: var(--ink);
+  line-height: 1.75;
+  background-color: var(--sand);
+  background-image:
+    radial-gradient(circle, rgba(68,48,33,0.05) 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(68,48,33,0.035) 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(83,219,238,0.06) 1.5px, transparent 2px);
+  background-size: 34px 34px, 52px 52px, 96px 96px;
+  background-position: 0 0, 17px 26px, 40px 10px;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 24px 80px;
+  position: relative;
+}
+
+/* ---------- Headings ---------- */
+
+h1, h2, h3 {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 0 0 10px;
+  padding-bottom: 16px;
+  background-image: var(--wave-svg);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 60px 16px;
+}
+
+h2 {
+  display: inline-block;
+  font-size: 19px;
+  margin: 30px 0 14px;
+  padding: 4px 16px 4px 14px;
+  border-left: 5px solid var(--ocean);
+  background: var(--ocean-pale);
+  border-radius: 0 14px 14px 0;
+}
+
+h3 {
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+
+p { margin: 6px 0; }
+
+/* ---------- Links ---------- */
+
+a {
+  color: var(--ocean-deep);
+  text-decoration: underline;
+  text-decoration-color: rgba(83, 219, 238, 0.55);
+  text-underline-offset: 3px;
+  transition: color .2s ease, text-decoration-color .2s ease;
+}
+
+a:hover {
+  color: #0a5c6c;
+  text-decoration-color: var(--ocean-deep);
+}
+
+/* ---------- Nav (beach pill menu) ---------- */
+
+nav {
+  margin: 22px 0 6px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+nav a {
+  display: inline-block;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 9px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+  border: 2px solid transparent;
+  box-shadow: 0 6px 14px rgba(68, 48, 33, 0.12);
+}
+
+nav a:hover {
+  border-color: var(--ocean);
+  color: var(--ocean-deep);
+  transform: translateY(-2px);
+}
+
+/* ---------- Card ---------- */
+
+.card {
+  background: var(--paper);
+  border-radius: 20px;
+  padding: 30px 34px 36px;
+  box-shadow: 0 14px 34px rgba(68, 48, 33, 0.12);
+  position: relative;
+  margin: 0 auto;
+}
+
+main.card, .card + .card { margin-top: 24px; }
+
+/* ---------- Ocean watercolor decoration ---------- */
+
+.ocean-wash {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(30px);
+  opacity: .5;
+  mix-blend-mode: multiply;
+  border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
+  animation: wash-drift 14s ease-in-out infinite alternate;
+}
+
+.ocean-wash.a { top: -60px; left: -80px; width: 260px; height: 220px; background: var(--ocean); }
+.ocean-wash.b { top: 20px; right: -90px; width: 220px; height: 200px; background: var(--ocean-pale); animation-delay: -4s; }
+.ocean-wash.c { bottom: -70px; left: 30%; width: 300px; height: 180px; background: var(--ocean); opacity: .28; animation-delay: -8s; }
+
+@keyframes wash-drift {
+  from { transform: translate(0, 0) scale(1) rotate(0deg); }
+  to   { transform: translate(14px, -10px) scale(1.08) rotate(6deg); }
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 34px 34px 30px;
+  background: linear-gradient(180deg, var(--paper), var(--sand));
+  box-shadow: 0 14px 34px rgba(68, 48, 33, 0.12);
+}
+
+.hero > * { position: relative; z-index: 1; }
+
+.wave-divider {
+  height: 20px;
+  margin: 34px 0;
+  background-image: var(--wave-svg);
+  background-repeat: repeat-x;
+  background-size: 70px 20px;
+  opacity: .8;
+}
+
+/* ---------- Polaroid photos ---------- */
+
+.polaroid,
+.trip-card {
+  display: inline-block;
+  background-color: var(--paper);
+  background-image: var(--grain-svg);
+  background-blend-mode: multiply;
+  background-size: 140px 140px;
+  margin: 10px;
+  padding: 14px 14px 44px;
+  border: 1px solid var(--sand-deep);
+  border-radius: 3px;
+  box-shadow: 0 10px 22px rgba(68, 48, 33, 0.20), 0 2px 6px rgba(68, 48, 33, 0.12);
+  position: relative;
+  transform: rotate(var(--tilt, -2deg));
+  transition: transform .3s ease, box-shadow .3s ease;
+  text-align: center;
+}
+
+.polaroid:hover,
+.trip-card:hover {
+  transform: rotate(0deg) scale(1.035);
+  box-shadow: 0 16px 30px rgba(68, 48, 33, 0.26);
+}
+
+.polaroid::before,
+.trip-card::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 60px;
+  height: 22px;
+  background: rgba(83, 219, 238, 0.55);
+  transform: translateX(-50%) rotate(-3deg);
+  box-shadow: 0 2px 4px rgba(68, 48, 33, 0.15);
+}
+
+.polaroid img,
+.trip-card img {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  filter: sepia(.12) saturate(.85) contrast(1.06) brightness(1.02);
+  position: relative;
+}
+
+.polaroid figcaption,
+.trip-card {
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.polaroid figcaption {
+  margin-top: 12px;
+  letter-spacing: .3px;
+}
+
+.trip-card br + * ,
+.trip-card {
+  font-family: "Gowun Batang", serif;
+}
+
+.trip-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 10px 0 6px;
+}
+
+.trip-grid-container .trip-card:nth-child(odd)  { --tilt: -3deg; }
+.trip-grid-container .trip-card:nth-child(even) { --tilt: 2.5deg; }
+.trip-grid-container .trip-card:nth-child(3n)   { --tilt: -1.5deg; }
+
+.video-frame video { max-width: 340px; width: 100%; }
+
+/* ---------- figure default (index best-cut photo) ---------- */
+
+figure { margin: 0; text-align: center; }
+
+/* ---------- Aside / info badge ---------- */
+
+aside {
+  margin-top: 26px;
+}
+
+aside .card {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+/* ---------- Table (class schedule) ---------- */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--paper);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(68, 48, 33, 0.12);
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 13.5px;
+  border-bottom: 1px solid var(--sand-deep);
+  border-right: 1px solid var(--sand-deep);
+}
+
+th:last-child, td:last-child { border-right: none; }
+tr:last-child td { border-bottom: none; }
+
+thead th {
+  background: var(--ocean);
+  color: var(--paper);
+  font-size: 14px;
+  padding: 14px 10px;
+}
+
+tbody tr:hover td {
+  background: var(--ocean-pale);
+}
+
+td[align="center"] {
+  background: var(--sand-deep);
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+/* ---------- Lists (profile page) ---------- */
+
+.tag-list, .todo-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag-list li {
+  background: var(--ocean-pale);
+  border: 1px solid var(--ocean);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14.5px;
+}
+
+.todo-list {
+  flex-direction: column;
+  counter-reset: todo;
+  gap: 8px;
+}
+
+.todo-list li {
+  list-style: none;
+  padding: 10px 16px 10px 44px;
+  background: var(--paper);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(68, 48, 33, 0.08);
+  position: relative;
+}
+
+.todo-list li::before {
+  counter-increment: todo;
+  content: counter(todo);
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  border-radius: 50%;
+  background: var(--ocean);
+  color: var(--paper);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.about-list dt {
+  font-weight: 700;
+  margin-top: 16px;
+  color: var(--ink);
+}
+
+.about-list dd {
+  margin: 4px 0 0;
+  padding: 10px 16px;
+  background: var(--paper);
+  border-left: 3px solid var(--ocean);
+  border-radius: 0 10px 10px 0;
+  color: var(--ink-soft);
+}
+
+/* ---------- Forms (sign up) ---------- */
+
+.card .subtitle {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+  padding-bottom: 14px;
+  border-bottom: 2px dashed var(--ocean-pale);
+}
+
+fieldset {
+  border: 2px dashed var(--ocean-pale);
+  border-radius: 14px;
+  margin-bottom: 18px;
+  padding: 16px 18px 20px;
+}
+
+legend {
+  font-weight: 700;
+  padding: 0 8px;
+  color: var(--ocean-deep);
+}
+
+label {
+  display: inline-block;
+  width: 84px;
+  font-size: 14px;
+  vertical-align: top;
+  color: var(--ink);
+}
+
+.row { margin-bottom: 12px; }
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
+  padding: 6px 10px;
+  font-size: 13.5px;
+  font-family: inherit;
+  border: 1.5px solid var(--sand-deep);
+  border-radius: 8px;
+  background: var(--sand);
+  color: var(--ink);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--ocean);
+  box-shadow: 0 0 0 3px var(--ocean-pale);
+}
+
+select {
+  padding: 5px 8px;
+  font-size: 13.5px;
+  font-family: inherit;
+  border: 1.5px solid var(--sand-deep);
+  border-radius: 8px;
+  background: var(--sand);
+  color: var(--ink);
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 13.5px;
+  font-family: inherit;
+  border: 1.5px solid var(--sand-deep);
+  border-radius: 8px;
+  background: var(--sand);
+  color: var(--ink);
+  resize: vertical;
+}
+
+.checkbox-group label,
+.radio-group label {
+  width: auto;
+  margin-right: 14px;
+  font-size: 13.5px;
+}
+
+.checkbox-group div,
+.radio-group {
+  margin-bottom: 6px;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-left: 6px;
+}
+
+.buttons { text-align: left; }
+
+.buttons button {
+  padding: 9px 22px;
+  margin-right: 10px;
+  font-size: 13.5px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  background: var(--ocean);
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(83, 219, 238, 0.4);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(83, 219, 238, 0.5);
+}
+
+.buttons button[type="reset"] {
+  background: var(--paper);
+  color: var(--ink-soft);
+  border: 1.5px solid var(--sand-deep);
+  box-shadow: none;
+}
+
+.footer {
+  margin-top: 30px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+/* ---------- Holiday schedule ---------- */
+
+.section { margin-bottom: 30px; }
+
+.time {
+  display: inline-block;
+  width: 56px;
+  font-weight: 700;
+  color: var(--ocean-deep);
+}
+
+mark {
+  background: var(--ocean-pale);
+  color: var(--ink);
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+
+/* ---------- Audio / video niceties ---------- */
+
+audio, video {
+  border-radius: 12px;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--sand-deep);
+  margin: 30px 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+  .container { padding: 24px 16px 60px; }
+  .card { padding: 22px 20px 26px; }
+  label { width: auto; display: block; margin-bottom: 4px; }
+  .polaroid img, .trip-card img { max-width: 100%; }
+}
