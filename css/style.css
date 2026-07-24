@@ -87,6 +87,10 @@ h2 {
   margin-top: 0;
 }
 
+.card > p + h2 {
+  margin-top: 15px;
+}
+
 .wave-divider:has(+ h2) {
   margin-bottom: 15px;
 }
@@ -326,6 +330,7 @@ main.card, .card + .card { margin-top: 24px; }
   display: block;
   width: fit-content;
   margin-top: 26px;
+  margin-bottom: 20px;
 }
 
 .polaroid img,
