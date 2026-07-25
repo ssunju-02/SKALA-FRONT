@@ -33,8 +33,8 @@ async function showWeather(cityKey) {
     // 3) 로딩 메시지를 실제 데이터로 교체
     weatherBox.innerHTML = `
       <p>📍 ${city.name}</p>
-      <p>위도(Latitude): ${city.lat}</p>
-      <p>경도(Longitude): ${city.lon}</p>
+      <p>위도: ${city.lat}</p>
+      <p>경도: ${city.lon}</p>
       <p>🌡️ 현재 기온: ${weather.temperature}°C</p>
       <p>💧 현재 습도: ${weather.humidity}%</p>
     `;
