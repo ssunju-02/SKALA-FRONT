@@ -456,6 +456,24 @@ aside .bag-card .buttons {
   margin-top: 8px;
 }
 
+aside .weather-card {
+  display: block;
+  width: 100%;
+  padding: 24px 22px 28px;
+  border-radius: 20px;
+  font-size: 14.5px;
+  margin-top: 16px;
+}
+
+aside .weather-card select {
+  width: 100%;
+  margin-top: 6px;
+}
+
+aside .weather-card #weather-box {
+  margin-top: 10px;
+}
+
 .widget-row {
   display: flex;
   gap: 16px;
